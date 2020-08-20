@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="e6f255cf-11dd-493d-b498-0666d188ccd2" name="List-Hamster" url="http://10.214.242.37">
+        <fileTransfer rootFolder="/home/zhenyuan/pycharm/CTI" accessType="SFTP" host="10.214.242.37" port="22" sshConfigId="e2a53da1-2d45-4fa3-adab-b26cc261f3a2" sshConfig="zhenyuan@10.214.242.37:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
