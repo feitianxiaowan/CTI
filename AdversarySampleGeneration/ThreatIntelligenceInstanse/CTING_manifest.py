@@ -159,12 +159,18 @@ class Entity:
     # def GetEntityUuid(attackPatterns=UUID_DEFAULT, eid=0, name=""):
     #     return uuid3(attackPatterns, name + str(eid))
 
-    def __init__(self, types, attackPatterns, eid=0, name="", arguments=""):
+    def __init__(self, types, uuid=UUID_DEFAULT, eid=0, name=""):
         self.types = types
         self.eid = eid # 0~0x7fff for process id (-1 for unknown process id)
         self.name = name
-        self.uuid = attackPatterns.GetEntityUuid(eid, name)
-        self.arguments = arguments
+        self.uuid = uuid
+
+    # def __init__(self, types, attackPatterns, eid=0, name="", arguments=""):
+    #     self.types = types
+    #     self.eid = eid # 0~0x7fff for process id (-1 for unknown process id)
+    #     self.name = name
+    #     self.uuid = attackPatterns.GetEntityUuid(eid, name)
+    #     self.arguments = arguments
 
     def AddOthers(self, name, info):
         self.others[name] = info
@@ -180,9 +186,11 @@ class Activity:
     # def GetActivityUuid(attackPatterns=UUID_DEFAULT, sequenceNo=0):
     #     return uuid3(attackPatterns, str(sequenceNo))
 
-    def __init__(self, types, attackPatterns, sequenceNo, source, destination):
-        self.types = types
-        self.sequenceNo = sequenceNo
-        self.uuid = attackPatterns.GetActivityUuid(sequenceNo)
-        self.source = source
-        self.destination = destination
+    # def __init__(self, sequenceNo=0, ):
+
+    # def __init__(self, types, attackPatterns, sequenceNo, source, destination):
+    #     self.types = types
+    #     self.sequenceNo = sequenceNo
+    #     self.uuid = attackPatterns.GetActivityUuid(sequenceNo)
+    #     self.source = source
+    #     self.destination = destination

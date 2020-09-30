@@ -58,12 +58,19 @@ class DarpaE5TraceParser(object):
         values = logs['datum']['com.bbn.tc.schema.avro.cdm20.Subject']
 
         uuid = values['uuid']
-        parentUuid = values['parentSubject']['com.bbn.tc.schema.avro.cdm20.UUID']
+        try:
+            parentUuid = values['parentSubject']['com.bbn.tc.schema.avro.cdm20.UUID']
+        except:
+            parentUuid = ""
+
         cid = values['cid']
         name = values['properties']['map']['name']
-        command = values['cmdLine']['string']
+        try:
+            command = values['cmdLine']['string']
+        except:
+            command = ""
 
-        output = "subject," + uuid + "," + parentUuid + "," + cid + "," + name + "," + command + "\n"
+        output = "subject," + uuid + "," + parentUuid + "," + str(cid) + "," + name + "," + command + "\n"
         return output
         pass
 
@@ -120,6 +127,8 @@ class DarpaE5TraceParser(object):
 
                 if "Event" in datumType:
                     outputFile.write(self.ExtractFromEvent(logs))
+                elif "Subject" in datumType:
+                    outputFile.write(self.ExtractFromSubject(logs))
                 elif "FileObject" in datumType:
                     outputFile.write(self.ExtractFromFileObject(logs))
                 elif "NetFlowObject" in datumType:
