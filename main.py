@@ -6,7 +6,8 @@ from GraphStorageReproduction.VertexCentricRDB import *
 
 def main():
     # DarpaE5TraceParser().BasicParser()
-    VertexCentricRDB().ReadFromDarpaE5Trace()
+    cdb = VertexCentricRDB()
+    cdb.ReadFromDarpaE5Trace()
     pass
 
 
